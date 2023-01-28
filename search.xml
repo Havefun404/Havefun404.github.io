@@ -44,6 +44,16 @@
   <entry>
     <title>GPT系列技术演进</title>
     <url>/2023/01/28/GPT%E7%B3%BB%E5%88%97%E6%8A%80%E6%9C%AF%E6%BC%94%E8%BF%9B/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<p>GPT1-GPT3系列</p>
+<span id="more"></span>
+
+<h1 id="大模型演进之路"><a href="#大模型演进之路" class="headerlink" title="大模型演进之路"></a>大模型演进之路</h1><h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><p>随着chatGPT史诗级别的破圈，AI智能所演化出的产品如雨后春笋般，进入各行各业人士的眼中。无论是专业人士，还是b站up主，无一不被chatGPT的强大与智能所折服。而这一切的一切终究要追溯到<strong>OpenAI</strong>——这家正在改变未来的科研机构，在语言智能领域上长年累月的探索和坚持。经过一代又一代的演变之后：</p>
+<ul>
+<li>一方面语言模型在几乎大部分的NLP任务上都有效果。</li>
+<li>另一方面根据人们的需求生成更有帮助的内容，变成众人可测，门槛更低的产品。</li>
+</ul>
+<p>若想要深入了解chatGPT，那就必须追寻其背后一代又一代的技术变革。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/sYdsnkRPlxk9Ig0pPOIPlG9WXRnfksUELtreHiaX4Is4Q4oIXT6CBCDxzZ2qJgIDkMZAWKImfLC4rxI2yheqTZQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="alt 演变之路"></p>
+<h6 id="Fig1-演变之路-图片出自AI语者"><a href="#Fig1-演变之路-图片出自AI语者" class="headerlink" title="Fig1 演变之路(图片出自AI语者)"></a>Fig1 演变之路(图片出自AI语者)</h6>]]></content>
   </entry>
 </search>
