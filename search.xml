@@ -100,6 +100,28 @@ new榜首。BERT对NLP领域乃至整个人工智能的影响是有目共睹的�
 ]]></content>
   </entry>
   <entry>
+    <title>hexo 搭建部署</title>
+    <url>/2022/11/02/hexo-%E6%90%AD%E5%BB%BA%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<p>Hexo 操作指南 <a
+href="https://hexo.io/zh-cn/docs/">Hexo的部署文档</a> <span id="more"></span></p>
+<h1 id="基础命令">基础命令</h1>
+<h2 id="新建文章">新建文章</h2>
+<blockquote>
+<p>hexo new [layout] "title"</p>
+</blockquote>
+<p>新建文章，如果不设置layout会自动选择_config.yml中的default.
+如果title中包含空格，要使用<strong>引号</strong>扩充. - 可以使用-p or
+--path 来自定义文章的路径，后面加文件路径即可.</p>
+<h2 id="部署文章">部署文章</h2>
+<ul>
+<li>生成静态文件：hexo g; 加-d or --deploy 直接部署</li>
+<li>发布草稿：hexo publish [layout] "filename"</li>
+<li>启动服务器：hexo server</li>
+<li>部署文章：hexo d; 加-g or --generate 部署前先生成静态文件</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2022/11/02/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
@@ -126,28 +148,6 @@ href="https://hexo.io/docs/generating.html">Generating</a></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 <p>More info: <a
 href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>hexo 搭建部署</title>
-    <url>/2022/11/02/hexo-%E6%90%AD%E5%BB%BA%E9%83%A8%E7%BD%B2/</url>
-    <content><![CDATA[<p>Hexo 操作指南 <a
-href="https://hexo.io/zh-cn/docs/">Hexo的部署文档</a> <span id="more"></span></p>
-<h1 id="基础命令">基础命令</h1>
-<h2 id="新建文章">新建文章</h2>
-<blockquote>
-<p>hexo new [layout] "title"</p>
-</blockquote>
-<p>新建文章，如果不设置layout会自动选择_config.yml中的default.
-如果title中包含空格，要使用<strong>引号</strong>扩充. - 可以使用-p or
---path 来自定义文章的路径，后面加文件路径即可.</p>
-<h2 id="部署文章">部署文章</h2>
-<ul>
-<li>生成静态文件：hexo g; 加-d or --deploy 直接部署</li>
-<li>发布草稿：hexo publish [layout] "filename"</li>
-<li>启动服务器：hexo server</li>
-<li>部署文章：hexo d; 加-g or --generate 部署前先生成静态文件</li>
-</ul>
 ]]></content>
   </entry>
 </search>
