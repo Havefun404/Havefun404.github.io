@@ -26,12 +26,18 @@
 <meta property="og:site_name" content="HaveFun">
 <meta property="og:description" content="GPT1-GPT3系列">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/sYdsnkRPlxk9Ig0pPOIPlG9WXRnfksUELtreHiaX4Is4Q4oIXT6CBCDxzZ2qJgIDkMZAWKImfLC4rxI2yheqTZQ/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://latex.vimsky.com/test.image.latex.php?fmt=svg&amp;val=%255Cdpi%257B150%257D%2520%255Clarge%2520L_1%2528u%2529%2520%253D%2520%255Csum_i%2520logP%2528u_i%255C%2520%257C%255C%2520u_%257Bi-k%257D%2520%255C%2520...%255C%2520u_%257Bi-1%257D%253B%2520%255Ctheta%2529&amp;dl=0">
+<meta property="og:image" content="https://latex.vimsky.com/test.image.latex.php?fmt=svg&amp;val=%255Cdpi%257B150%257D%2520%255Clarge%2520L_2%2528C%2529%2520%253D%2520%255Csum_%257B%2528x%252Cy%2529%257DlogP%2528y%255C%2520%257C%255C%2520x%255E1%252C%255C%2520...%255C%2520%252Cx%255Em%2529&amp;dl=0">
+<meta property="og:image" content="https://latex.vimsky.com/test.image.latex.php?fmt=svg&amp;val=%255Cdpi%257B150%257D%2520%255Clarge%2520L_3%2528C%2529%2520%253D%2520L_1%2528C%2529%2520%26plus%3B%255Clambda%2520L_2%2528C%2529&amp;dl=0">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/sYdsnkRPlxk9Ig0pPOIPlG9WXRnfksUErH52Yy05S1KX3YRnYqee2QELyRm9GITTEE5V7BuWITctAGdNfgnDKg/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/sYdsnkRPlxk9Ig0pPOIPlG9WXRnfksUE5CLassHKNkWjxdOqIjsy51s0mXuySoyL8EKP5Oicm58yzqueDuI3oaA/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
 <meta property="og:image" content="https://miro.medium.com/max/720/1*1PJi06R7QMTGBh8CdIsW8w.webp">
 <meta property="article:published_time" content="2023-01-28T11:02:09.000Z">
-<meta property="article:modified_time" content="2023-01-29T11:38:35.854Z">
+<meta property="article:modified_time" content="2023-01-29T14:45:26.300Z">
 <meta property="article:author" content="HaveFun">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://miro.medium.com/max/720/1*1PJi06R7QMTGBh8CdIsW8w.webp">
+<meta name="twitter:image" content="https://mmbiz.qpic.cn/mmbiz_png/sYdsnkRPlxk9Ig0pPOIPlG9WXRnfksUELtreHiaX4Is4Q4oIXT6CBCDxzZ2qJgIDkMZAWKImfLC4rxI2yheqTZQ/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
 
 
 <link rel="canonical" href="http://example.com/2023/01/28/GPT%E7%B3%BB%E5%88%97%E6%8A%80%E6%9C%AF%E6%BC%94%E8%BF%9B/">
@@ -144,8 +150,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%BC%94%E8%BF%9B%E4%B9%8B%E8%B7%AF"><span class="nav-number">1.</span> <span class="nav-text">大模型演进之路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E8%A7%88"><span class="nav-number">1.1.</span> <span class="nav-text">概览</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#fig1-%E6%BC%94%E5%8F%98%E4%B9%8B%E8%B7%AF%E5%9B%BE%E7%89%87%E5%87%BA%E8%87%AAai%E8%AF%AD%E8%80%85%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7"><span class="nav-number">1.1.0.0.0.1.</span> <span class="nav-text">Fig1
-演变之路(图片出自AI语者微信公众号)</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gpt%E5%A5%A0%E5%AE%9Aar%E6%A1%86%E6%9E%B6%E8%B7%AF%E5%BE%84%E9%A2%84%E8%AE%AD%E7%BB%83fine-tune%E5%85%88%E6%B2%B3"><span class="nav-number">1.2.</span> <span class="nav-text">GPT：奠定AR框架路径，预训练+fine-tune先河</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A9%E7%94%A8%E6%97%A0%E6%A0%87%E6%B3%A8%E6%95%B0%E6%8D%AE%E9%A2%84%E8%AE%AD%E7%BB%83"><span class="nav-number">1.2.1.</span> <span class="nav-text">利用无标注数据预训练</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A9%E7%94%A8%E6%A0%87%E5%8F%B7%E6%95%B0%E6%8D%AEfinetune"><span class="nav-number">1.2.2.</span> <span class="nav-text">利用标号数据Finetune</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zero-shot-%E4%B8%8E-prompt"><span class="nav-number">1.3.</span> <span class="nav-text">zero-shot 与 Prompt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gpt-3-%E5%A4%A7%E5%8A%9B%E5%87%BA%E5%A5%87%E8%BF%B9"><span class="nav-number">1.4.</span> <span class="nav-text">GPT-3 大力出奇迹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#in-context-learning"><span class="nav-number">1.5.</span> <span class="nav-text">In-context learning</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">大模型演进之路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E8%A7%88"><span class="nav-number">1.1.</span> <span class="nav-text">概览</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Fig1-%E6%BC%94%E5%8F%98%E4%B9%8B%E8%B7%AF-%E5%9B%BE%E7%89%87%E5%87%BA%E8%87%AAAI%E8%AF%AD%E8%80%85%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7"><span class="nav-number">1.1.0.0.0.1.</span> <span class="nav-text">Fig1 演变之路(图片出自AI语者微信公众号)</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GPT%EF%BC%9A%E5%A5%A0%E5%AE%9AAR%E6%A1%86%E6%9E%B6%E8%B7%AF%E5%BE%84%EF%BC%8C%E9%A2%84%E8%AE%AD%E7%BB%83-fine-tune%E5%85%88%E6%B2%B3"><span class="nav-number">1.2.</span> <span class="nav-text">GPT：奠定AR框架路径，预训练+fine-tune先河</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A9%E7%94%A8%E6%97%A0%E6%A0%87%E6%B3%A8%E6%95%B0%E6%8D%AE%E9%A2%84%E8%AE%AD%E7%BB%83"><span class="nav-number">1.2.1.</span> <span class="nav-text">利用无标注数据预训练</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A9%E7%94%A8%E6%A0%87%E5%8F%B7%E6%95%B0%E6%8D%AEFinetune"><span class="nav-number">1.2.2.</span> <span class="nav-text">利用标号数据Finetune</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Fig2-GPT-Finetune-%E5%9B%BE%E7%89%87%E5%87%BA%E8%87%AAAI%E8%AF%AD%E8%80%85%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7"><span class="nav-number">1.2.2.0.0.1.</span> <span class="nav-text">Fig2 GPT Finetune(图片出自AI语者微信公众号)</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GPT-2-%E6%9B%B4%E5%A4%A7%E8%A7%84%E6%A8%A1%EF%BC%8CPrompt%E5%8A%A9%E5%8A%9B"><span class="nav-number">1.3.</span> <span class="nav-text">GPT-2 更大规模，Prompt助力</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zero-shot-%E4%B8%8E-Prompt"><span class="nav-number">1.4.</span> <span class="nav-text">zero-shot 与 Prompt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GPT-3-%E5%A4%A7%E5%8A%9B%E5%87%BA%E5%A5%87%E8%BF%B9"><span class="nav-number">1.5.</span> <span class="nav-text">GPT-3 大力出奇迹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#In-context-learning"><span class="nav-number">1.6.</span> <span class="nav-text">In-context learning</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Fig3-%E4%B8%8A%E4%B8%8B%E6%96%87context-%E5%9B%BE%E7%89%87%E5%87%BA%E8%87%AAAI%E8%AF%AD%E8%80%85%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7"><span class="nav-number">1.6.0.0.0.1.</span> <span class="nav-text">Fig3 上下文context(图片出自AI语者微信公众号)</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -242,7 +247,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-01-29 22:38:35" itemprop="dateModified" datetime="2023-01-29T22:38:35+11:00">2023-01-29</time>
+      <time title="修改时间：2023-01-30 01:45:26" itemprop="dateModified" datetime="2023-01-30T01:45:26+11:00">2023-01-30</time>
     </span>
 
   
@@ -255,30 +260,24 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>GPT1-GPT3系列 <span id="more"></span></p>
-<h1 id="大模型演进之路">大模型演进之路</h1>
+        <p>GPT1-GPT3系列</p>
+<span id="more"></span>
+<h1>大模型演进之路</h1>
 <h2 id="概览">概览</h2>
-<p>随着chatGPT史诗级别的破圈，AI智能所演化出的产品如雨后春笋般，进入各行各业人士的眼中。无论是专业人士，还是b站up主，无一不被chatGPT的强大与智能所折服。而这一切的一切终究要追溯到<strong>OpenAI</strong>——这家正在改变未来的科研机构，在语言智能领域上长年累月的探索和坚持。经过一代又一代的演变之后：
-+ 一方面语言模型在几乎大部分的NLP任务上都有效果。 +
-另一方面根据人们的需求生成更有帮助的内容，变成众人可测，门槛更低的产品。</p>
+<p>随着chatGPT史诗级别的破圈，AI智能所演化出的产品如雨后春笋般，进入各行各业人士的眼中。无论是专业人士，还是b站up主，无一不被chatGPT的强大与智能所折服。而这一切的一切终究要追溯到<strong>OpenAI</strong>——这家正在改变未来的科研机构，在语言智能领域上长年累月的探索和坚持。经过一代又一代的演变之后：</p>
+<ul>
+<li>一方面语言模型在几乎大部分的NLP任务上都有效果。</li>
+<li>另一方面根据人们的需求生成更有帮助的内容，变成众人可测，门槛更低的产品。</li>
+</ul>
 <p>若想要深入了解chatGPT，那就必须追寻其背后一代又一代的技术变革。</p>
-<figure>
-<img
-src="https://mmbiz.qpic.cn/mmbiz_png/sYdsnkRPlxk9Ig0pPOIPlG9WXRnfksUELtreHiaX4Is4Q4oIXT6CBCDxzZ2qJgIDkMZAWKImfLC4rxI2yheqTZQ/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"
-alt="alt 演变之路" />
-<figcaption aria-hidden="true">alt 演变之路</figcaption>
-</figure>
-<h6 id="fig1-演变之路图片出自ai语者微信公众号">Fig1
-演变之路(图片出自AI语者微信公众号)</h6>
-<hr />
-<h2
-id="gpt奠定ar框架路径预训练fine-tune先河">GPT：奠定AR框架路径，预训练+fine-tune先河</h2>
-<p><strong>GPT(Generative
-Pre-Training)</strong>在Transformer之后提出，虽然GPT1先于举世闻名的BERT提出，尽管GPT1提出了大家目前最为熟悉的预训练+微调的模式，但奈何BERT的效果如开挂一般，横扫千军。但世人均不可否认GPT对语言智能的贡献，以及后续陆续演化出的<strong>巨无霸——GPT3</strong>。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/sYdsnkRPlxk9Ig0pPOIPlG9WXRnfksUELtreHiaX4Is4Q4oIXT6CBCDxzZ2qJgIDkMZAWKImfLC4rxI2yheqTZQ/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="alt 演变之路"></p>
+<h6 id="Fig1-演变之路-图片出自AI语者微信公众号">Fig1 演变之路(图片出自AI语者微信公众号)</h6>
+<hr>
+<h2 id="GPT：奠定AR框架路径，预训练-fine-tune先河">GPT：奠定AR框架路径，预训练+fine-tune先河</h2>
+<p><strong>GPT(Generative Pre-Training)<strong>在Transformer之后提出，虽然GPT1先于举世闻名的BERT提出，尽管GPT1提出了大家目前最为熟悉的预训练+微调的模式，但奈何BERT的效果如开挂一般，横扫千军。但世人均不可否认GPT对语言智能的贡献，以及后续陆续演化出的</strong>巨无霸——GPT3</strong>。</p>
 <p>受到Transformer的启发，GPT系列模型的主要架构都是Transformer中的decoder架构，通常将这种架构归类为自回归类<strong>AR(Autoregressive)</strong></p>
 <blockquote>
-<p>AR框架：单向获取信息，只能向前或向后来预测指定位置单词，e.g. GPT,
-ELMO</p>
+<p>AR框架：单向获取信息，只能向前或向后来预测指定位置单词，e.g. GPT, ELMO</p>
 </blockquote>
 <ul>
 <li>AR优点： 适合长生成类任务</li>
@@ -293,62 +292,52 @@ ELMO</p>
 </ul>
 <h3 id="利用无标注数据预训练">利用无标注数据预训练</h3>
 <p>模型上GPT只采用了Transformer的解码器部分，即模型只能看到当前词元和之前的信息，后面的信息都会被mask。同时，使用一个窗口大小<strong>k</strong>来预测该窗口的下一个词，目标函数如下：</p>
-<p><span class="math display">\[L_1(u) = \sum_i logP(u_i\ |\ u_{i-k} \
-...\ u_{i-1}; \theta)\]</span></p>
-<p>其中，<span
-class="math inline">\(L_1\)</span>代表第一个损失函数；<span
-class="math inline">\(u\)</span>代表词元；k代表窗口大小；<span
-class="math inline">\(\theta\)</span>代表模型参数。</p>
-<h3 id="利用标号数据finetune">利用标号数据Finetune</h3>
-<p>在Finetune过程中，模型利用新的有标号的数据重新进行训练。将输入送给模型后，得到最终transformer模块的输出<span
-class="math inline">\({h_l^m}\)</span>，将该部分输入到一层linear，最终放入softmax进行预测，该部分的目标函数如下：</p>
-<p><span class="math display">\[L_2(C) = \sum_{(x,y)}logP(y\ |\ x^1,\
-...\ ,x^m)\]</span></p>
+<p><img src="https://latex.vimsky.com/test.image.latex.php?fmt=svg&amp;val=%255Cdpi%257B150%257D%2520%255Clarge%2520L_1%2528u%2529%2520%253D%2520%255Csum_i%2520logP%2528u_i%255C%2520%257C%255C%2520u_%257Bi-k%257D%2520%255C%2520...%255C%2520u_%257Bi-1%257D%253B%2520%255Ctheta%2529&amp;dl=0" alt="alt"></p>
+<p>其中，$L_1$代表第一个损失函数；$u$代表词元；k代表窗口大小；$\theta$代表模型参数。</p>
+<h3 id="利用标号数据Finetune">利用标号数据Finetune</h3>
+<p>在Finetune过程中，模型利用新的有标号的数据重新进行训练。将输入送给模型后，得到最终transformer模块的输出${h_l^m}$，将该部分输入到一层linear，最终放入softmax进行预测，该部分的目标函数如下：</p>
+<p><img src="https://latex.vimsky.com/test.image.latex.php?fmt=svg&amp;val=%255Cdpi%257B150%257D%2520%255Clarge%2520L_2%2528C%2529%2520%253D%2520%255Csum_%257B%2528x%252Cy%2529%257DlogP%2528y%255C%2520%257C%255C%2520x%255E1%252C%255C%2520...%255C%2520%252Cx%255Em%2529&amp;dl=0" alt="alt "></p>
 <p>同时，在Finetune中，作者发现将语言模型作为辅助的目标函数，有助于泛化性和更便于收敛。因此，最终优化后的目标函数变为：</p>
-<p><span class="math display">\[
-L_3(C) = L_1(C) +\lambda L_2(C)
-\]</span></p>
+<p><img src="https://latex.vimsky.com/test.image.latex.php?fmt=svg&amp;val=%255Cdpi%257B150%257D%2520%255Clarge%2520L_3%2528C%2529%2520%253D%2520L_1%2528C%2529%2520%26plus%3B%255Clambda%2520L_2%2528C%2529&amp;dl=0" alt="alt "></p>
 <p>而对于不同的任务，Finetune时会加上任务特定的linear层，来表示不同的input和label，如下图：</p>
-<p><img
-src="https://mmbiz.qpic.cn/mmbiz_png/sYdsnkRPlxk9Ig0pPOIPlG9WXRnfksUErH52Yy05S1KX3YRnYqee2QELyRm9GITTEE5V7BuWITctAGdNfgnDKg/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"
-alt="alt GPT Finetune" /> ###### Fig2 GPT
-Finetune(图片出自AI语者微信公众号)</p>
-<p>总的来说，GPT所应用的数据(BookCorpus)和其参数规模(0.117B)与后续的模型有一定差距，并且效果被强力后辈<strong>Bert</strong>狠狠碾压，效果并没有非常出色。
-*** ## GPT-2 更大规模，Prompt助力</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/sYdsnkRPlxk9Ig0pPOIPlG9WXRnfksUErH52Yy05S1KX3YRnYqee2QELyRm9GITTEE5V7BuWITctAGdNfgnDKg/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="alt GPT Finetune"></p>
+<h6 id="Fig2-GPT-Finetune-图片出自AI语者微信公众号">Fig2 GPT Finetune(图片出自AI语者微信公众号)</h6>
+<p>总的来说，GPT所应用的数据(BookCorpus)和其参数规模(0.117B)与后续的模型有一定差距，并且效果被强力后辈<strong>Bert</strong>狠狠碾压，效果并没有非常出色。</p>
+<hr>
+<h2 id="GPT-2-更大规模，Prompt助力">GPT-2 更大规模，Prompt助力</h2>
 <p>此时，已是Bert的时代，Bert声名大噪，无论是模型规模还是在下游任务中效果都产生了巨大的影响。而Bert采用的AE框架也体现出了自己的优势，毕竟效果太过显著。但OpenAI这样的公司，怎会放弃自己的老路，成为Bert的“阶下囚”，随后推出了GPT2模型。</p>
-<p>GPT2主要的两个工作为： -
-扩大规模：数据上，使用筛选了更优质的数据；模型上，将参数扩大到1.5B -
-更自然的融合方式，下面重点介绍这点。</p>
-<h2 id="zero-shot-与-prompt">zero-shot 与 Prompt</h2>
-<p>无论是GPT，还是Bert都采用了预训练+微调的方式。但： -
-预训练的过程和微调的下游任务之间可能存在一定的gap，无法完全发挥预训练模型的优势；
-- 同时微调的时候也需要将大模型重新训练，耗时耗力； -
-并且在微调时需要收集带标签的数据。</p>
-<p>为了克服这些困难，GPT2利用<strong>Prompt</strong>的方式，将下游的任务加到预训练模型中进行预测，从而彻底丢弃微调训练的过程，进而实现<strong>zero-shot</strong>。
-Prompt具体加入方式，举例来说，在机器翻译中，将句子表示成：
-<u><strong>Translate it</strong></u> ,<u>I love computer</u>
-,<u>我爱计算机</u> 开头的部分就为Prompt。</p>
+<p>GPT2主要的两个工作为：</p>
+<ul>
+<li>扩大规模：数据上，使用筛选了更优质的数据；模型上，将参数扩大到1.5B</li>
+<li>更自然的融合方式，下面重点介绍这点。</li>
+</ul>
+<h2 id="zero-shot-与-Prompt">zero-shot 与 Prompt</h2>
+<p>无论是GPT，还是Bert都采用了预训练+微调的方式。但：</p>
+<ul>
+<li>预训练的过程和微调的下游任务之间可能存在一定的gap，无法完全发挥预训练模型的优势；</li>
+<li>同时微调的时候也需要将大模型重新训练，耗时耗力；</li>
+<li>并且在微调时需要收集带标签的数据。</li>
+</ul>
+<p>为了克服这些困难，GPT2利用<strong>Prompt</strong>的方式，将下游的任务加到预训练模型中进行预测，从而彻底丢弃微调训练的过程，进而实现<strong>zero-shot</strong>。<br>
+Prompt具体加入方式，举例来说，在机器翻译中，将句子表示成：<br>
+<u><strong>Translate it</strong></u> ,<u>I love computer</u> ,<u>我爱计算机</u> 开头的部分就为Prompt。</p>
 <p>引入Prompt起到作用的原因，可以大致理解为：如果模型足够强大就有能力识别出要求；其次数据中可能存在类似prompt这样的信息。尽管GPT2在不少任务上有效果，但相比Bert而言并没有太大的提升。虽然GPT2并没有激起多大的风浪，但其更自然的融合方式，这样的思想为后续的GPT3以及如今的chatGPT打下来重要的基石。</p>
-<hr />
-<h2 id="gpt-3-大力出奇迹">GPT-3 大力出奇迹</h2>
+<hr>
+<h2 id="GPT-3-大力出奇迹">GPT-3 大力出奇迹</h2>
 <p>GPT-2的zero-shot方式似乎有点激进，GPT-3便采用了Few-shot的方法，给一定的标号样本，但并不多。同时，在模型规模上，由于在GPT-2实验中效果的增长并没有因为参数的增加而出现变缓的趋势，GPT-3采用了更优质的数据，参数规模直接到达<strong>175B</strong>，庞然大物。</p>
-<h2 id="in-context-learning">In-context learning</h2>
+<h2 id="In-context-learning">In-context learning</h2>
 <p>如此庞大的模型，在微调阶段不适合进行更新，GPT-3并没有进行微调阶段的梯度更新。在预训练过程中，数据会是多元的，那么同一类型的序列会具有相关性，提供上下文信息达到Few-shot，如图所示：</p>
-<p><img
-src="https://mmbiz.qpic.cn/mmbiz_png/sYdsnkRPlxk9Ig0pPOIPlG9WXRnfksUE5CLassHKNkWjxdOqIjsy51s0mXuySoyL8EKP5Oicm58yzqueDuI3oaA/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"
-alt="alt In-context learning" /> ###### Fig3
-上下文context(图片出自AI语者微信公众号)</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/sYdsnkRPlxk9Ig0pPOIPlG9WXRnfksUE5CLassHKNkWjxdOqIjsy51s0mXuySoyL8EKP5Oicm58yzqueDuI3oaA/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="alt In-context learning"></p>
+<h6 id="Fig3-上下文context-图片出自AI语者微信公众号">Fig3 上下文context(图片出自AI语者微信公众号)</h6>
 <p>下图为三种设置的对比，其中zero-shot是说不给任何的样本，只给出prompt来进行预测。而one-shot是给出一个有标号的样本(即翻译的样本)进行预测。Few-shot则是给出更多的样本，Few-shot也存在一定缺点，比如在预测时，模型无法利用上一次预测所抓取到的有用信息，因为并不进行训练，可能不利于上下文的任务。</p>
-<figure>
-<img src="https://miro.medium.com/max/720/1*1PJi06R7QMTGBh8CdIsW8w.webp"
-alt="alt" />
-<figcaption aria-hidden="true">alt</figcaption>
-</figure>
-<p>在模型结构方面，GPT-3只在GPT-2的基础上加入了<strong>Sparse-Transformer</strong>的方法。GPT-3也存在一些缺点：
-- 文本生成类任务具有局限性 - AR框架，无法双向获取信息 -
-均匀的预测下一个词，并没有区分重要性</p>
-<p>GPT-3的确实印证了大力出奇迹，其后续衍生出来的各式各样的应用，带来了意想不到的效果，从而也衍生出了基于GPT-3的生态，而使GPT-3进入人们眼帘的事件便是，国外网友利用GPT-3搭建了一个文章网站，网站上的文章都是由GPT-3完成，其中一篇网站还一度霸占Hacker
-new榜首。BERT对NLP领域乃至整个人工智能的影响是有目共睹的，但OpenAI团队不仅仅盯着效果不放，他们似乎有着更加宏伟的蓝图，孜孜不倦浇灌，只待百花盛开。</p>
+<p><img src="https://miro.medium.com/max/720/1*1PJi06R7QMTGBh8CdIsW8w.webp" alt="alt "></p>
+<p>在模型结构方面，GPT-3只在GPT-2的基础上加入了<strong>Sparse-Transformer</strong>的方法。GPT-3也存在一些缺点：</p>
+<ul>
+<li>文本生成类任务具有局限性</li>
+<li>AR框架，无法双向获取信息</li>
+<li>均匀的预测下一个词，并没有区分重要性</li>
+</ul>
+<p>GPT-3的确实印证了大力出奇迹，其后续衍生出来的各式各样的应用，带来了意想不到的效果，从而也衍生出了基于GPT-3的生态，而使GPT-3进入人们眼帘的事件便是，国外网友利用GPT-3搭建了一个文章网站，网站上的文章都是由GPT-3完成，其中一篇网站还一度霸占Hacker new榜首。BERT对NLP领域乃至整个人工智能的影响是有目共睹的，但OpenAI团队不仅仅盯着效果不放，他们似乎有着更加宏伟的蓝图，孜孜不倦浇灌，只待百花盛开。</p>
 
     </div>
 
@@ -418,8 +407,7 @@ new榜首。BERT对NLP领域乃至整个人工智能的影响是有目共睹的�
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
-<script src="/js/third-party/math/mathjax.js"></script>
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.3/katex.min.css" integrity="sha256-NJNVfEC6jfEt62wQMafLNT2eI6BaWONXbpkSEVAs3+8=" crossorigin="anonymous">
 
 
 
