@@ -204,12 +204,19 @@ Naive method就是按照字符串进行分割，但是存在很多的问题：</
 <li>prefixes(前缀): 往往会改变含义而不改变类别，例如write-&gt;rewrite</li>
 </ul>
 <h2 id="Lemmatisation——词形还原">Lemmatisation——词形还原</h2>
-<p>Lemmatisation可以用来判断两个词是否有相同的词根，通过移除任意的变形来达到还原。这就需要<strong>lexicon of lemmas</strong>(词典)来辅助。那么词形还原是如何做的？</p>
-<blockquote>
-<p>Stemming<br>
-移除所有的后缀，只留下主干，这种方法会比lemmatisation更低的词汇稀疏性，在信息检索中非常流行。但并不总是可解释的</p>
-</blockquote>
-<h2 id="The-Porter-Stemmer">The Porter Stemmer</h2>
+<p>Lemmatisation可以用来判断两个词是否有相同的词根，通过移除任意的变形来达到还原。这就需要<strong>lexicon of lemmas</strong>(词典)来辅助。</p>
+<h2 id="Stemming——提取主干">Stemming——提取主干</h2>
+<p>移除所有的后缀，只留下主干，这种方法会比lemmatisation更低的词汇稀疏性，在信息检索中非常流行。但并不总是可解释的。</p>
+<h3 id="两种方法的讨论">两种方法的讨论</h3>
+<ol>
+<li>不同点<br>
+Stemming方法是将后缀移除，这样的方法在某些场景很合适，但并不总是这样。<br>
+Lemmatisation方法是需要考虑词的形态分析，所以需要构建相关的词典。lemma是所有变形体的根本，而stem不一定是，所以构建的词典是关于lemma的。<br>
+Stemming会导致<strong>更低的词汇稀疏性</strong>：因为stemming的方法会导致一些单词被错误地截断为相同的基本形式，增加歧义，减少准确，降低词汇的稀疏性(因为有些词出现的频率增加了，词汇稀疏性便降低)。而lemmatisation不仅考虑形态，还会考虑上下文和词性等信息，减少歧义，更高稀疏性，更高准确，但是计算成本较高，也需要更多的时间和成本。</li>
+<li>如何选择<br>
+一般会根据任务情况选择其中的一种方法。Stemming常常用于信息检索任务，大多其他的任务都是使用lemmatisation。因为Stemming之后，会丢失大量的和token相关的信息，虽然lemmatisation也会丢失一些，但总体较少，对于大多数NLP任务，以丢失更多单词信息为代价来换取更低的词汇稀疏性是不值得的。</li>
+</ol>
+<h3 id="The-Porter-Stemmer">The Porter Stemmer</h3>
 <p>在英文中流行的算法，应用重写的规则，首先去除词形变化的后缀，再去除衍生词的后缀。规则包含：</p>
 <ul>
 <li>c(小写c): 代表辅音(consonant) 例如: b, c, d</li>
