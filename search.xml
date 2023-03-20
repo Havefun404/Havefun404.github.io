@@ -13,7 +13,8 @@
 <li>另一方面根据人们的需求生成更有帮助的内容，变成众人可测，门槛更低的产品。</li>
 </ul>
 <p>若想要深入了解chatGPT，那就必须追寻其背后一代又一代的技术变革。</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/sYdsnkRPlxk9Ig0pPOIPlG9WXRnfksUELtreHiaX4Is4Q4oIXT6CBCDxzZ2qJgIDkMZAWKImfLC4rxI2yheqTZQ/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="alt 演变之路"></p>
+<p><img src="/2023/01/28/GPT%E7%B3%BB%E5%88%97%E6%8A%80%E6%9C%AF%E6%BC%94%E8%BF%9B/LLM.png" alt="演变之路"></p>
+<!--  -->
 <h6 id="Fig1-演变之路-图片出自AI语者微信公众号">Fig1 演变之路(图片出自AI语者微信公众号)</h6>
 <hr>
 <h2 id="GPT：奠定AR框架路径，预训练-fine-tune先河">GPT：奠定AR框架路径，预训练+fine-tune先河</h2>
@@ -81,50 +82,6 @@ Prompt具体加入方式，举例来说，在机器翻译中，将句子表示�
 <li>均匀的预测下一个词，并没有区分重要性</li>
 </ul>
 <p>GPT-3的确实印证了大力出奇迹，其后续衍生出来的各式各样的应用，带来了意想不到的效果，从而也衍生出了基于GPT-3的生态，而使GPT-3进入人们眼帘的事件便是，国外网友利用GPT-3搭建了一个文章网站，网站上的文章都是由GPT-3完成，其中一篇网站还一度霸占Hacker new榜首。BERT对NLP领域乃至整个人工智能的影响是有目共睹的，但OpenAI团队不仅仅盯着效果不放，他们似乎有着更加宏伟的蓝图，孜孜不倦浇灌，只待百花盛开。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2022/11/02/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span>
-<h2 id="Quick-Start">Quick Start</h2>
-<h3 id="Create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>hexo 搭建部署</title>
-    <url>/2022/11/02/hexo-%E6%90%AD%E5%BB%BA%E9%83%A8%E7%BD%B2/</url>
-    <content><![CDATA[<p>Hexo 操作指南<br>
-<a href="https://hexo.io/zh-cn/docs/">Hexo的部署文档</a></p>
-<span id="more"></span>
-<h1>基础命令</h1>
-<h2 id="新建文章">新建文章</h2>
-<blockquote>
-<p>hexo new [layout] “title”</p>
-</blockquote>
-<p>新建文章，如果不设置layout会自动选择_config.yml中的default. 如果title中包含空格，要使用<strong>引号</strong>扩充.</p>
-<ul>
-<li>可以使用-p or --path 来自定义文章的路径，后面加文件路径即可.</li>
-</ul>
-<h2 id="部署文章">部署文章</h2>
-<ul>
-<li>生成静态文件：hexo g; 加-d or --deploy 直接部署</li>
-<li>发布草稿：hexo publish [layout] “filename”</li>
-<li>启动服务器：hexo server</li>
-<li>部署文章：hexo d; 加-g or --generate 部署前先生成静态文件</li>
-</ul>
 ]]></content>
   </entry>
   <entry>
@@ -256,5 +213,49 @@ Final word是最终保留下来的词，对下游的应用有重要的影响。<
     <title>NLP lecture n-gram</title>
     <url>/2023/03/20/NLP-lecture-n-gram/</url>
     <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/11/02/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span>
+<h2 id="Quick-Start">Quick Start</h2>
+<h3 id="Create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>hexo 搭建部署</title>
+    <url>/2022/11/02/hexo-%E6%90%AD%E5%BB%BA%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<p>Hexo 操作指南<br>
+<a href="https://hexo.io/zh-cn/docs/">Hexo的部署文档</a></p>
+<span id="more"></span>
+<h1>基础命令</h1>
+<h2 id="新建文章">新建文章</h2>
+<blockquote>
+<p>hexo new [layout] “title”</p>
+</blockquote>
+<p>新建文章，如果不设置layout会自动选择_config.yml中的default. 如果title中包含空格，要使用<strong>引号</strong>扩充.</p>
+<ul>
+<li>可以使用-p or --path 来自定义文章的路径，后面加文件路径即可.</li>
+</ul>
+<h2 id="部署文章">部署文章</h2>
+<ul>
+<li>生成静态文件：hexo g; 加-d or --deploy 直接部署</li>
+<li>发布草稿：hexo publish [layout] “filename”</li>
+<li>启动服务器：hexo server</li>
+<li>部署文章：hexo d; 加-g or --generate 部署前先生成静态文件</li>
+</ul>
+]]></content>
   </entry>
 </search>
