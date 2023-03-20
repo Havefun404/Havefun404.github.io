@@ -209,7 +209,79 @@ Final word是最终保留下来的词，对下游的应用有重要的影响。<
   <entry>
     <title>NLP lecture n-gram</title>
     <url>/2023/03/20/NLP-lecture-n-gram/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<p>N-gram Language Models</p>
+<span id="more"></span>
+<h1>N-gram Probabilities</h1>
+<p>我们的目标是求m个单词的序列的概率，首先第一步是利用<strong>Chain Rule</strong>将联合概率转化为条件概率。<br>
+<img src="/2023/03/20/NLP-lecture-n-gram/format1.png" alt="prob_format"><br>
+但是这样的条件概率还是比较棘手，所以我们需要采取<strong>Markov Assumption</strong>马尔可夫假设。对于不同阶的设定，可以分为<br>
+以下几种情况。<br>
+<img src="/2023/03/20/NLP-lecture-n-gram/n-gram.png" alt="n-gram"></p>
+<blockquote>
+<p>The Markov Assumption: 为状态空间中经过从一个状态到另一个状态的转换的随机过程。该过程要求具备“无记忆”的性质：<br>
+下一状态的概率分布只能由当前状态决定，在时间序列中它前面的事件均与之无关。</p>
+</blockquote>
+<p>那么如何在计算这些概率呢？在这里使用<strong>MLE</strong>的方法。基本就是计数的方法。对于不同的gram模型，有以下的计算方法<br>
+<img src="/2023/03/20/NLP-lecture-n-gram/MLE.png" alt="MLE_counts"><br>
+Btw,我们需要一些特殊的tag来标记序列的开始和结尾&quot;&lt;s&gt;“和”&lt;/s&gt;“.注意我们需要在公式中加入对”&lt;/s&gt;&quot;的预测，因为这是句子的结尾。以下是trigram的例子。<br>
+<img src="/2023/03/20/NLP-lecture-n-gram/trigram_exp.png" alt="Trigram"></p>
+<h2 id="Problems">Problems</h2>
+<ul>
+<li>语言模型存在着长距离影响，可能会需要非常大的<strong>n</strong>.</li>
+<li>概率有时候会很小，这时候可以采用<strong>log</strong>的方法来避免数值下溢。</li>
+<li>如果在公式中存在corpus从来没有出现过的grams，那整个公式的结果就会变为0，这样就需要<strong>smoothing</strong>的方法。</li>
+</ul>
+<h1>Smoothing</h1>
+<p>基本的想法是，给从来没有见过的预设概率，也要保证所有的概率的和为1</p>
+<h2 id="Laplacian-Add-one">Laplacian(Add-one)</h2>
+<p>基本思想：假装我们比实际看到的每个 n-gram 都多一次。具体例子如下：<br>
+<img src="/2023/03/20/NLP-lecture-n-gram/addone.png" alt="add_one"><br>
+其中，在unigram中<strong>M</strong>表示在corpus中全部token的数量；而<strong>V</strong>代表的词汇表是有多少个不同的词(理解为set)。<br>
+在<strong>V</strong>中，我们需要加入&quot;&lt;/s&gt;“，因为需要对末尾进行预测，而”&lt;s&gt;&quot;则不需要，因为我们不需要去推断它的条件概率。下图是一个bigram的例子<br>
+<img src="/2023/03/20/NLP-lecture-n-gram/addone_exp.png" alt="add_one_exp"></p>
+<h2 id="Lidstone-Add-k">Lidstone(Add-k)</h2>
+<p>基本思想：有时候直接add one的方法会过于多，所以取而代之的是add 一个小数<strong>k</strong>。公式如下图。关于k的选择不同的应用需求不同，有时候可能需要finetune来进行调整<br>
+<img src="/2023/03/20/NLP-lecture-n-gram/add-k.png" alt="add-k"></p>
+<h2 id="Absolute-Discounting">Absolute Discounting</h2>
+<p>基本思想：从观察到的 n-gram 计数中借用固定概率。然后重新分配给没有看见过的n-gram。<br>
+我们从能观察(observed)到gram中拿出来一些counts分配给从未出现过(unobserved)的gram。如下图所示，其中<strong>0.1</strong>就表示从observed中提取多少，0.1*5因为一共有五个observed的，除以2是因为有两个unobserved，这样就得到了新的有效计数(effective counts),然后概率的计算就根据bigram的基础公式，对应组合的有效计数除以全部的counts。<br>
+<img src="/2023/03/20/NLP-lecture-n-gram/absolute_exp.png" alt="absolute"></p>
+<h2 id="Backoff-Katz">Backoff(Katz)</h2>
+<p>基本思想：重新分配的时候，不是像absolute那样平均的分配，而是通过<strong>lower order</strong>的方式，例如原来是bigram，此时就依据unigram。<br>
+<img src="/2023/03/20/NLP-lecture-n-gram/backoff.png" alt="backoff"></p>
+<ul>
+<li>其中第一行就是计算observed的情况，考虑减去discount</li>
+</ul>
+<blockquote>
+<ul>
+<li>其中第二行就是计算unobserved的情况，</li>
+<li>其中第一项表示，从observed中获取到的count的概率；</li>
+<li>第二项就是利用lower order来控制分配的权重。第二项中,分子计算的是unigram的概率，而分母计算的是所有与context没有共同出现过的word的unigram概率的和。<br>
+但是该方法存在问题，如果在计算unigram的概率时，某些错误词汇的出现次数反而更多，这样计算的结果会更大，而这却是错误的。</li>
+</ul>
+</blockquote>
+<h2 id="Kneser-Ney-Smooth">Kneser-Ney Smooth</h2>
+<p>基本思想：为了解决上述问题，该方法会基于低阶 n-gram 的通用性。</p>
+<blockquote>
+<p>什么是通用性(versatility AKA continuation probability)?<br>
+高: 对于一个word，与很多不同的词co-occurs<br>
+低: 对于一个word，与很少的词co-occurs<br>
+具体公式如下，不同的点在于第二行的第二项，第二项也叫做continuation probability<br>
+<img src="/2023/03/20/NLP-lecture-n-gram/Kneser-Ney.png" alt="Kneser-Ney"></p>
+</blockquote>
+<ul>
+<li>分子是counts(注意不是概率了)，含义是词汇表中出现在单词w之前的单词类型的数量，也叫做continuation count；<br>
+计算continuation count的时候，考虑整个corpus包括&quot;&lt;s&gt;“和”&lt;/s&gt;&quot;。</li>
+<li>分母是和wi-1从未共同出现过的wj的continuation count的总和<br>
+这样一来，就可以解决虽然错误的词出现很多，但是它有更低的versatility。</li>
+</ul>
+<p>具体例子如下，给出chunk a，求a的continuation probability<br>
+<img src="/2023/03/20/NLP-lecture-n-gram/continuation_count.png" alt="continuation_count"><br>
+<img src="/2023/03/20/NLP-lecture-n-gram/continuation_prob.png" alt="continuation_prob"></p>
+<h2 id="Interpolation-插补">Interpolation(插补)</h2>
+<p>基本思想：一种更好的方式来结合不同阶的n-gram<br>
+<img src="/2023/03/20/NLP-lecture-n-gram/interpolation.png" alt="interpolation"></p>
+]]></content>
   </entry>
   <entry>
     <title>Hello World</title>
