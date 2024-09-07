@@ -327,4 +327,12 @@ Btw,我们需要一些特殊的tag来标记序列的开始和结尾&quot;&lt;s&g
 </ul>
 ]]></content>
   </entry>
+  <entry>
+    <title>fassis</title>
+    <url>/2024/09/07/fassis/</url>
+    <content><![CDATA[<p>fassis向量检索</p>
+<span id="more"></span>
+<p>参考文档: <a href="https://github.com/daiyizheng/NLP-Interview-Notes/blob/main/NLPinterview/QA/Faiss/readme.md">https://github.com/daiyizheng/NLP-Interview-Notes/blob/main/NLPinterview/QA/Faiss/readme.md</a></p>
+]]></content>
+  </entry>
 </search>
