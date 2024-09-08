@@ -1,9 +1,9 @@
 ---
-title: fassis
+title: faiss向量检索
 date: 2024-09-07 17:18:17
 tags:
 ---
-fassis向量检索
+faiss向量检索
 <!--more-->
 # Faiss介绍
 > 为什么使用faiss？
