@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"havefun404.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.13.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":10,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="faiss向量检索">
+<meta property="og:type" content="article">
+<meta property="og:title" content="faiss向量检索">
+<meta property="og:url" content="http://havefun404.github.io/2024/09/07/faiss/index.html">
+<meta property="og:site_name" content="HaveFun">
+<meta property="og:description" content="faiss向量检索">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-09-07T09:18:17.000Z">
+<meta property="article:modified_time" content="2024-09-08T15:07:17.811Z">
+<meta property="article:author" content="HaveFun">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://havefun404.github.io/2024/09/07/faiss/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://havefun404.github.io/2024/09/07/faiss/","path":"2024/09/07/faiss/","title":"faiss向量检索"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>faiss向量检索 | HaveFun</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">HaveFun</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-series"><a href="/series/" rel="section"><i class="fa fa-th fa-fw"></i>series</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">Faiss介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">Faiss索引类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">常用索引方式实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9A%B4%E5%8A%9B-IndexFlatL2"><span class="nav-number">3.0.1.</span> <span class="nav-text">暴力 IndexFlatL2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E5%BF%AB%E9%80%9F%E5%BA%A6IndexIVFFlat"><span class="nav-number">3.0.2.</span> <span class="nav-text">更快速度IndexIVFFlat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E9%9C%80%E8%A6%81IndexIVFPQ"><span class="nav-number">3.0.3.</span> <span class="nav-text">内存需要IndexIVFPQ</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">GPU使用</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">HaveFun</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Havefun404" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Havefun404" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zijiezhao985@gmail.com" title="E-Mail → mailto:zijiezhao985@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://havefun404.github.io/2024/09/07/faiss/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="HaveFun">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HaveFun">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="faiss向量检索 | HaveFun">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          faiss向量检索
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-09-07 17:18:17" itemprop="dateCreated datePublished" datetime="2024-09-07T17:18:17+08:00">2024-09-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-09-08 23:07:17" itemprop="dateModified" datetime="2024-09-08T23:07:17+08:00">2024-09-08</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>faiss向量检索</p>
+<span id="more"></span>
+<h1>Faiss介绍</h1>
+<blockquote>
+<p>为什么使用faiss？</p>
+</blockquote>
+<ul>
+<li>Faiss提供相似度搜索和聚类算法，可以用于大规模的向量检索库，传统的向量相似度计算效率低下、不适合大规模检索以及不太好支持gpu</li>
+</ul>
+<blockquote>
+<p>原理是什么？</p>
+</blockquote>
+<ul>
+<li>实现了多种索引结构，利用ANN(<strong>近似最近邻搜索</strong>)提高搜索效率；可以使用向量量化技术。将高维向量映射到紧凑表示；对高维向量进行聚类操作；还有各种高效的搜索算法。</li>
+<li>采用的相似度计算方法主要是两种：欧式距离和点积</li>
+<li>关键技术包括
+<ul>
+<li>OpenMP ，并行计算中的理论</li>
+<li>堆排序，一种高效的排序算法，Faiss中用在TopK个近邻的获取上</li>
+<li>PQ算法，一种矢量量化方法</li>
+<li>倒排索引</li>
+<li>Kmeans</li>
+<li>PCA，主成分分析</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>如何使用？</p>
+</blockquote>
+<ul>
+<li>构建训练数据集，通常是embedding的向量表示</li>
+<li>选择合适的index，将训练数据add到index当中</li>
+<li>使用query进行向量检索，得到最终结果</li>
+</ul>
+<h1>Faiss索引类型</h1>
+<p>Faiss索引类型，会分为暴力精准检索和近似近邻索引，下图是官方的分类表：<br>
+<a target="_blank" rel="noopener" href="https://github.com/facebookresearch/faiss/wiki/Faiss-indexes">官方链接</a><br>
+![[Pasted image 20240908222154.png]]<br>
+在选择index类型的时候可以按照以下思路来思考选择：</p>
+<ul>
+<li>数据量有多大？比较小的话可以选择&quot;Flat&quot; index，如果你的数据没有办法全部放入RAM，那么可以构建一个个小的index，然后再把搜索结构拼接起来(<a target="_blank" rel="noopener" href="https://github.com/facebookresearch/faiss/wiki/Brute-force-search-without-an-index#combining-the-results-from-several-searches">参考</a>)</li>
+<li>是否需要精确检索呢？
+<ul>
+<li>需要则选择Flat index(IndexFlatL2)</li>
+</ul>
+</li>
+<li>是否需要考虑内存问题？
+<ul>
+<li>不考虑：选择HNSW</li>
+<li>考虑：可以选择FPQ</li>
+</ul>
+</li>
+</ul>
+<h1>常用索引方式实现</h1>
+<h3 id="暴力-IndexFlatL2">暴力 IndexFlatL2</h3>
+<blockquote>
+<p>暴力索引，会返回全局最优，不需要训练，遍历全部数据集，返回准确的相似向量。适用于数据量在十万以内的检索，可以秒级返回</p>
+</blockquote>
+<ul>
+<li>创建索引</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">d = vector.shape   # 向量dims</span><br><span class="line">index = faiss.IndexFlatL2(d)   # build the index</span><br><span class="line">print(index.is_trained)   # 不会训练</span><br></pre></td></tr></table></figure>
+<ul>
+<li>添加数据集</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">index.add(xb)                  # add vectors to the index</span><br><span class="line">print(index.ntotal)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>寻找相似向量</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">k = 4                          # we want to see 4 nearest neighbors</span><br><span class="line">D, I = index.search(xq, k)     # actual search</span><br><span class="line">print(I[:5])                   # neighbors of the 5 first queries</span><br><span class="line">print(D[-5:])                  # neighbors of the 5 last queries</span><br></pre></td></tr></table></figure>
+<h3 id="更快速度IndexIVFFlat">更快速度IndexIVFFlat</h3>
+<blockquote>
+<p>IndexIVFFlat使用倒排，先聚类再搜索，可以加快检索速度，先将xb中的数据进行聚类，nlist: 聚类的数目；nprobe: 在多少个聚类中进行搜索，默认为1, nprobe越大，结果越精确，但是速度越慢；在内存允许的条件下，适用于亿级别的向量检索</p>
+</blockquote>
+<ul>
+<li>创建索引</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">nlist = 100                       #聚类中心的个数</span><br><span class="line">k = 4</span><br><span class="line">quantizer = faiss.IndexFlatL2(d)  # the other index</span><br><span class="line">index = faiss.IndexIVFFlat(quantizer, d, nlist, faiss.METRIC_L2)</span><br><span class="line">   # here we specify METRIC_L2, by default it performs inner-product search, another one is METRIC_INNER_PRODUCT</span><br></pre></td></tr></table></figure>
+<p>其中quantizer是定义的另一个index，用于查询query与哪个簇心比较</p>
+<ul>
+<li>训练</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">index.train(xb)</span><br><span class="line">assert index.is_trained # 需要训练</span><br><span class="line"></span><br><span class="line">index.add(xb)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>寻找相似向量</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">D, I = index.search(xq, k)     # actual search</span><br><span class="line">print(I[-5:])                  # neighbors of the 5 last queries</span><br><span class="line">index.nprobe = 10              # default nprobe is 1, try a few more</span><br><span class="line">D, I = index.search(xq, k)</span><br><span class="line">print(I[-5:])                  # neighbors of the 5 last queries</span><br></pre></td></tr></table></figure>
+<p>nprobe是查找多少个簇心，默认是1个</p>
+<h3 id="内存需要IndexIVFPQ">内存需要IndexIVFPQ</h3>
+<blockquote>
+<p>索引IndexFlatL2和IndexIVFFlat都会全量存储所有的向量在内存中；IndexIVFPQ 基于Product Quantizer(乘积量化)</p>
+</blockquote>
+<ul>
+<li>创建索引
+<ul>
+<li>m：乘积量化，将原来的维度分成多少份，d必须是m的整数倍</li>
+<li>bits：每个子向量用多少个bits表示，默认是8</li>
+<li>定义的维度为d = 64，向量的数据类型为float32。这里压缩成了8个字节。所以压缩比率为 (64*32/8) / 8 = 32</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">nlist = 100</span><br><span class="line">m = 8                             # number of bytes per vector</span><br><span class="line">k = 4</span><br><span class="line">quantizer = faiss.IndexFlatL2(d)  # this remains the same</span><br><span class="line">index = faiss.IndexIVFPQ(quantizer, d, nlist, m, 8)</span><br><span class="line">									# 8 specifies that each sub-vector is encoded a</span><br></pre></td></tr></table></figure>
+<ul>
+<li>训练，同上</li>
+<li>寻找相似向量，同上</li>
+</ul>
+<h1>GPU使用</h1>
+<blockquote>
+<p>有些index支持gpu使用</p>
+</blockquote>
+<ul>
+<li>单gpu</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">res = faiss.StandardGpuResources()  # use a single GPU, 这个命令需要安装Faiss GPU 版本</span><br><span class="line"># build a flat (CPU) index</span><br><span class="line">index_flat = faiss.IndexFlatL2(d)</span><br><span class="line"># make it into a gpu index</span><br><span class="line">gpu_index_flat = faiss.index_cpu_to_gpu(res, 0, index_flat)</span><br><span class="line">gpu_index_flat.add(xb)         # add vectors to the index</span><br><span class="line">print(gpu_index_flat.ntotal)</span><br><span class="line"></span><br><span class="line">k = 4                          # we want to see 4 nearest neighbors</span><br><span class="line">D, I = gpu_index_flat.search(xq, k)  # actual search</span><br><span class="line">print(I[:5])                   # neighbors of the 5 first queries</span><br><span class="line">print(I[-5:])                  # neighbors of the 5 last queries</span><br></pre></td></tr></table></figure>
+<ul>
+<li>多gpu</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ngpus = faiss.get_num_gpus()</span><br><span class="line">print(&quot;number of GPUs:&quot;, ngpus)</span><br><span class="line">cpu_index = faiss.IndexFlatL2(d)</span><br><span class="line">gpu_index = faiss.index_cpu_to_all_gpus(cpu_index)   # build the index</span><br><span class="line">gpu_index.add(xb)              # add vectors to the index</span><br><span class="line">print(gpu_index.ntotal)</span><br><span class="line">k = 4                          # we want to see 4 nearest neighbors</span><br><span class="line">D, I = gpu_index.search(xq, k) # actual search</span><br><span class="line">print(I[:5])                   # neighbors of the 5 first queries</span><br><span class="line">print(I[-5:])                  # neighbors of the 5 last queries</span><br></pre></td></tr></table></figure>
+<p>相关参考：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/facebookresearch/faiss/wiki">https://github.com/facebookresearch/faiss/wiki</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/daiyizheng/NLP-Interview-Notes/blob/main/NLPinterview/QA/Faiss/readme.md">https://github.com/daiyizheng/NLP-Interview-Notes/blob/main/NLPinterview/QA/Faiss/readme.md</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/yhzhou/p/10569311.html">https://www.cnblogs.com/yhzhou/p/10569311.html</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/03/20/NLP-lecture-n-gram/" rel="prev" title="NLP lecture n-gram">
+                  <i class="fa fa-chevron-left"></i> NLP lecture n-gram
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/09/07/hello-world/" rel="next" title="Hello World">
+                  Hello World <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HaveFun</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.3/katex.min.css" integrity="sha256-NJNVfEC6jfEt62wQMafLNT2eI6BaWONXbpkSEVAs3+8=" crossorigin="anonymous">
+
+
+
+</body>
+</html>
